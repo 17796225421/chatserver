@@ -7,7 +7,7 @@ https://blog.csdn.net/QIANGWEIYUAN/article/details/88792874
 # muduo测试
 https://blog.csdn.net/QIANGWEIYUAN/article/details/89023980
 # 遇到的问题
-## 一（未解决）
+## 一（已解决）
 Failed to connect to github.com port 443: 拒绝连接
 
 ```
@@ -19,3 +19,7 @@ git config --global https.proxy
 unset http_proxy
 unset https_proxy
 ```
+发现虚拟机无法登陆github，给虚拟机开启vpn
+https://steemit.com/ubutnu/@yanwu/vmware-ubuntu-shadowsocks
+
+## 二
