@@ -3,7 +3,7 @@
 
 # 遇到的问题
 ## 一
-git  443 禁止访问
+Failed to connect to github.com port 443: 拒绝连接
 
 ```
 git config --global http.proxy
