@@ -2,7 +2,7 @@
 
 
 # 遇到的问题
-## 一
+## 一（未解决）
 Failed to connect to github.com port 443: 拒绝连接
 
 ```
