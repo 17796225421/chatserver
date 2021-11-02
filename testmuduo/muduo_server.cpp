@@ -30,6 +30,7 @@ public:
     {
         // 给服务器注册用户连接的创建和断开回调
         _server.setConnectionCallback(std::bind(&ChatServer::onConnection,this,_1));
+        
         // 给服务器注册用户读写事件回调
     }
 
