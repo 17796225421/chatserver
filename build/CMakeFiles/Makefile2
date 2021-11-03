@@ -72,64 +72,82 @@ CMAKE_BINARY_DIR = /root/project/QQ/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: testmuduo/all
+all: test/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: testmuduo/preinstall
+preinstall: test/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: testmuduo/clean
+clean: test/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory testmuduo
+# Directory level rules for directory test
 
 # Recursive "all" directory target.
-testmuduo/all: testmuduo/CMakeFiles/server.dir/all
+test/all: test/testmuduo/all
 
-.PHONY : testmuduo/all
+.PHONY : test/all
 
 # Recursive "preinstall" directory target.
-testmuduo/preinstall:
+test/preinstall: test/testmuduo/preinstall
 
-.PHONY : testmuduo/preinstall
+.PHONY : test/preinstall
 
 # Recursive "clean" directory target.
-testmuduo/clean: testmuduo/CMakeFiles/server.dir/clean
+test/clean: test/testmuduo/clean
 
-.PHONY : testmuduo/clean
+.PHONY : test/clean
 
 #=============================================================================
-# Target rules for target testmuduo/CMakeFiles/server.dir
+# Directory level rules for directory test/testmuduo
+
+# Recursive "all" directory target.
+test/testmuduo/all: test/testmuduo/CMakeFiles/server.dir/all
+
+.PHONY : test/testmuduo/all
+
+# Recursive "preinstall" directory target.
+test/testmuduo/preinstall:
+
+.PHONY : test/testmuduo/preinstall
+
+# Recursive "clean" directory target.
+test/testmuduo/clean: test/testmuduo/CMakeFiles/server.dir/clean
+
+.PHONY : test/testmuduo/clean
+
+#=============================================================================
+# Target rules for target test/testmuduo/CMakeFiles/server.dir
 
 # All Build rule for target.
-testmuduo/CMakeFiles/server.dir/all:
-	$(MAKE) $(MAKESILENT) -f testmuduo/CMakeFiles/server.dir/build.make testmuduo/CMakeFiles/server.dir/depend
-	$(MAKE) $(MAKESILENT) -f testmuduo/CMakeFiles/server.dir/build.make testmuduo/CMakeFiles/server.dir/build
+test/testmuduo/CMakeFiles/server.dir/all:
+	$(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/server.dir/build.make test/testmuduo/CMakeFiles/server.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/server.dir/build.make test/testmuduo/CMakeFiles/server.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/project/QQ/build/CMakeFiles --progress-num=1,2 "Built target server"
-.PHONY : testmuduo/CMakeFiles/server.dir/all
+.PHONY : test/testmuduo/CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
-testmuduo/CMakeFiles/server.dir/rule: cmake_check_build_system
+test/testmuduo/CMakeFiles/server.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/project/QQ/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testmuduo/CMakeFiles/server.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/testmuduo/CMakeFiles/server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/project/QQ/build/CMakeFiles 0
-.PHONY : testmuduo/CMakeFiles/server.dir/rule
+.PHONY : test/testmuduo/CMakeFiles/server.dir/rule
 
 # Convenience name for target.
-server: testmuduo/CMakeFiles/server.dir/rule
+server: test/testmuduo/CMakeFiles/server.dir/rule
 
 .PHONY : server
 
 # clean rule for target.
-testmuduo/CMakeFiles/server.dir/clean:
-	$(MAKE) $(MAKESILENT) -f testmuduo/CMakeFiles/server.dir/build.make testmuduo/CMakeFiles/server.dir/clean
-.PHONY : testmuduo/CMakeFiles/server.dir/clean
+test/testmuduo/CMakeFiles/server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/server.dir/build.make test/testmuduo/CMakeFiles/server.dir/clean
+.PHONY : test/testmuduo/CMakeFiles/server.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

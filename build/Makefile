@@ -139,7 +139,7 @@ server: cmake_check_build_system
 
 # fast build rule for target.
 server/fast:
-	$(MAKE) $(MAKESILENT) -f testmuduo/CMakeFiles/server.dir/build.make testmuduo/CMakeFiles/server.dir/build
+	$(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/server.dir/build.make test/testmuduo/CMakeFiles/server.dir/build
 .PHONY : server/fast
 
 # Help Target
