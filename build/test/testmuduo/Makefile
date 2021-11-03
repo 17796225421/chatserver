@@ -130,19 +130,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test/testmuduo/CMakeFiles/server.dir/rule:
-	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/testmuduo/CMakeFiles/server.dir/rule
-.PHONY : test/testmuduo/CMakeFiles/server.dir/rule
+test/testmuduo/CMakeFiles/testmuduo_server.dir/rule:
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/testmuduo/CMakeFiles/testmuduo_server.dir/rule
+.PHONY : test/testmuduo/CMakeFiles/testmuduo_server.dir/rule
 
 # Convenience name for target.
-server: test/testmuduo/CMakeFiles/server.dir/rule
+testmuduo_server: test/testmuduo/CMakeFiles/testmuduo_server.dir/rule
 
-.PHONY : server
+.PHONY : testmuduo_server
 
 # fast build rule for target.
-server/fast:
-	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/server.dir/build.make test/testmuduo/CMakeFiles/server.dir/build
-.PHONY : server/fast
+testmuduo_server/fast:
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/testmuduo_server.dir/build.make test/testmuduo/CMakeFiles/testmuduo_server.dir/build
+.PHONY : testmuduo_server/fast
 
 muduo_server.o: muduo_server.cpp.o
 
@@ -150,7 +150,7 @@ muduo_server.o: muduo_server.cpp.o
 
 # target to build an object file
 muduo_server.cpp.o:
-	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/server.dir/build.make test/testmuduo/CMakeFiles/server.dir/muduo_server.cpp.o
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/testmuduo_server.dir/build.make test/testmuduo/CMakeFiles/testmuduo_server.dir/muduo_server.cpp.o
 .PHONY : muduo_server.cpp.o
 
 muduo_server.i: muduo_server.cpp.i
@@ -159,7 +159,7 @@ muduo_server.i: muduo_server.cpp.i
 
 # target to preprocess a source file
 muduo_server.cpp.i:
-	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/server.dir/build.make test/testmuduo/CMakeFiles/server.dir/muduo_server.cpp.i
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/testmuduo_server.dir/build.make test/testmuduo/CMakeFiles/testmuduo_server.dir/muduo_server.cpp.i
 .PHONY : muduo_server.cpp.i
 
 muduo_server.s: muduo_server.cpp.s
@@ -168,7 +168,7 @@ muduo_server.s: muduo_server.cpp.s
 
 # target to generate assembly for a file
 muduo_server.cpp.s:
-	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/server.dir/build.make test/testmuduo/CMakeFiles/server.dir/muduo_server.cpp.s
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/testmuduo_server.dir/build.make test/testmuduo/CMakeFiles/testmuduo_server.dir/muduo_server.cpp.s
 .PHONY : muduo_server.cpp.s
 
 # Help Target
@@ -179,7 +179,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... server"
+	@echo "... testmuduo_server"
 	@echo "... muduo_server.o"
 	@echo "... muduo_server.i"
 	@echo "... muduo_server.s"

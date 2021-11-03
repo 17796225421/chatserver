@@ -12,4 +12,5 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/include/server)
 
 # 执行搜索的子目录
-add_subdirectory(test src)
+add_subdirectory(src)
+# add_subdirectory(test)

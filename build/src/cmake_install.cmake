@@ -1,4 +1,4 @@
-# Install script for directory: /root/project/QQ/test
+# Install script for directory: /root/project/QQ/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/project/QQ/build/src/testmuduo/cmake_install.cmake")
+  include("/root/project/QQ/build/src/server/cmake_install.cmake")
 
 endif()
 

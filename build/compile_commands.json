@@ -1,7 +1,12 @@
 [
 {
-  "directory": "/root/project/QQ/build/src/testmuduo",
-  "command": "/bin/x86_64-linux-gnu-g++-10  -I/root/project/QQ/include -I/root/project/QQ/include/server -g -g -o CMakeFiles/testmuduo_server.dir/muduo_server.cpp.o -c /root/project/QQ/test/testmuduo/muduo_server.cpp",
-  "file": "/root/project/QQ/test/testmuduo/muduo_server.cpp"
+  "directory": "/root/project/QQ/build/src/server",
+  "command": "/bin/x86_64-linux-gnu-g++-10  -I/root/project/QQ/include -I/root/project/QQ/include/server -g -g -o CMakeFiles/ChatServer.dir/chatserver.cpp.o -c /root/project/QQ/src/server/chatserver.cpp",
+  "file": "/root/project/QQ/src/server/chatserver.cpp"
+},
+{
+  "directory": "/root/project/QQ/build/src/server",
+  "command": "/bin/x86_64-linux-gnu-g++-10  -I/root/project/QQ/include -I/root/project/QQ/include/server -g -g -o CMakeFiles/ChatServer.dir/main.cpp.o -c /root/project/QQ/src/server/main.cpp",
+  "file": "/root/project/QQ/src/server/main.cpp"
 }
 ]

@@ -90,64 +90,64 @@ clean: src/clean
 # Directory level rules for directory src
 
 # Recursive "all" directory target.
-src/all: src/testmuduo/all
+src/all: src/server/all
 
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
-src/preinstall: src/testmuduo/preinstall
+src/preinstall: src/server/preinstall
 
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
-src/clean: src/testmuduo/clean
+src/clean: src/server/clean
 
 .PHONY : src/clean
 
 #=============================================================================
-# Directory level rules for directory src/testmuduo
+# Directory level rules for directory src/server
 
 # Recursive "all" directory target.
-src/testmuduo/all: src/testmuduo/CMakeFiles/testmuduo_server.dir/all
+src/server/all: src/server/CMakeFiles/ChatServer.dir/all
 
-.PHONY : src/testmuduo/all
+.PHONY : src/server/all
 
 # Recursive "preinstall" directory target.
-src/testmuduo/preinstall:
+src/server/preinstall:
 
-.PHONY : src/testmuduo/preinstall
+.PHONY : src/server/preinstall
 
 # Recursive "clean" directory target.
-src/testmuduo/clean: src/testmuduo/CMakeFiles/testmuduo_server.dir/clean
+src/server/clean: src/server/CMakeFiles/ChatServer.dir/clean
 
-.PHONY : src/testmuduo/clean
+.PHONY : src/server/clean
 
 #=============================================================================
-# Target rules for target src/testmuduo/CMakeFiles/testmuduo_server.dir
+# Target rules for target src/server/CMakeFiles/ChatServer.dir
 
 # All Build rule for target.
-src/testmuduo/CMakeFiles/testmuduo_server.dir/all:
-	$(MAKE) $(MAKESILENT) -f src/testmuduo/CMakeFiles/testmuduo_server.dir/build.make src/testmuduo/CMakeFiles/testmuduo_server.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/testmuduo/CMakeFiles/testmuduo_server.dir/build.make src/testmuduo/CMakeFiles/testmuduo_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/project/QQ/build/CMakeFiles --progress-num=1,2 "Built target testmuduo_server"
-.PHONY : src/testmuduo/CMakeFiles/testmuduo_server.dir/all
+src/server/CMakeFiles/ChatServer.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/project/QQ/build/CMakeFiles --progress-num=1,2,3 "Built target ChatServer"
+.PHONY : src/server/CMakeFiles/ChatServer.dir/all
 
 # Build rule for subdir invocation for target.
-src/testmuduo/CMakeFiles/testmuduo_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/project/QQ/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/testmuduo/CMakeFiles/testmuduo_server.dir/all
+src/server/CMakeFiles/ChatServer.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/project/QQ/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/server/CMakeFiles/ChatServer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/project/QQ/build/CMakeFiles 0
-.PHONY : src/testmuduo/CMakeFiles/testmuduo_server.dir/rule
+.PHONY : src/server/CMakeFiles/ChatServer.dir/rule
 
 # Convenience name for target.
-testmuduo_server: src/testmuduo/CMakeFiles/testmuduo_server.dir/rule
+ChatServer: src/server/CMakeFiles/ChatServer.dir/rule
 
-.PHONY : testmuduo_server
+.PHONY : ChatServer
 
 # clean rule for target.
-src/testmuduo/CMakeFiles/testmuduo_server.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/testmuduo/CMakeFiles/testmuduo_server.dir/build.make src/testmuduo/CMakeFiles/testmuduo_server.dir/clean
-.PHONY : src/testmuduo/CMakeFiles/testmuduo_server.dir/clean
+src/server/CMakeFiles/ChatServer.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/clean
+.PHONY : src/server/CMakeFiles/ChatServer.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

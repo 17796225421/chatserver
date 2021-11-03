@@ -2,6 +2,6 @@
 /root/project/QQ/build/CMakeFiles/edit_cache.dir
 /root/project/QQ/build/src/CMakeFiles/rebuild_cache.dir
 /root/project/QQ/build/src/CMakeFiles/edit_cache.dir
-/root/project/QQ/build/src/testmuduo/CMakeFiles/rebuild_cache.dir
-/root/project/QQ/build/src/testmuduo/CMakeFiles/edit_cache.dir
-/root/project/QQ/build/src/testmuduo/CMakeFiles/testmuduo_server.dir
+/root/project/QQ/build/src/server/CMakeFiles/rebuild_cache.dir
+/root/project/QQ/build/src/server/CMakeFiles/edit_cache.dir
+/root/project/QQ/build/src/server/CMakeFiles/ChatServer.dir

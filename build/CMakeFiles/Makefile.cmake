@@ -11,8 +11,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.18.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.18.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.18.4/CMakeSystem.cmake"
-  "../test/CMakeLists.txt"
-  "../test/testmuduo/CMakeLists.txt"
+  "../src/CMakeLists.txt"
+  "../src/server/CMakeLists.txt"
   "/usr/share/cmake-3.18/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.18/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.18/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
@@ -44,10 +44,10 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/testmuduo/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/server/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "src/testmuduo/CMakeFiles/testmuduo_server.dir/DependInfo.cmake"
+  "src/server/CMakeFiles/ChatServer.dir/DependInfo.cmake"
   )
