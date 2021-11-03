@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/root/project/QQ/build/testmuduo",
+  "command": "/bin/x86_64-linux-gnu-g++-10   -g -g -o CMakeFiles/server.dir/muduo_server.cpp.o -c /root/project/QQ/testmuduo/muduo_server.cpp",
+  "file": "/root/project/QQ/testmuduo/muduo_server.cpp"
+}
+]

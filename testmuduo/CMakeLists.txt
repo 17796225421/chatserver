@@ -1,11 +1,5 @@
 # g++ -o server -g muduo_server.cpp xxx.cpp -l/usr/include -L/usr/lib -lmuduo_net -lmuduo_base -lpthread
 
-cmake_minimum_required(VERSION 3.0)
-project(main)
-
-# 配置编译选项 -O2 -g
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -g)
-
 # 配置头文件搜索路径 -l/usr/include
 # include_directories()
 
@@ -13,7 +7,7 @@ set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -g)
 # link_directories()
 
 # 设置需要编译的源文件列表
-set(SRC_LIST muduo_server.cpp)
+set(SRC_LIST ./muduo_server.cpp)
 
 # 设置可执行文件最终存储的路径
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
