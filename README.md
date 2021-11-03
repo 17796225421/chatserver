@@ -26,5 +26,8 @@ unset https_proxy
 发现虚拟机无法登陆github，给虚拟机开启vpn
 https://steemit.com/ubutnu/@yanwu/vmware-ubuntu-shadowsocks
 
-## 二（未解决）
+## 二（已解决）
 GnuTLS recv error (-54): Error in the pull function.
+
+### 方法一（有效）
+可能是vscode bug，如果git的图形界面远程库选择时直接通过github仓库选择不行，要通过url选择
