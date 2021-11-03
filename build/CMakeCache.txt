@@ -144,7 +144,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=main
+CMAKE_PROJECT_NAME:STATIC=chat
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/bin/x86_64-linux-gnu-ranlib
@@ -207,6 +207,12 @@ CMAKE_STRIP:FILEPATH=/bin/x86_64-linux-gnu-strip
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Value Computed by CMake
+chat_BINARY_DIR:STATIC=/root/project/QQ/build
+
+//Value Computed by CMake
+chat_SOURCE_DIR:STATIC=/root/project/QQ
 
 //Value Computed by CMake
 main_BINARY_DIR:STATIC=/root/project/QQ/build
