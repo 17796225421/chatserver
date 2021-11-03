@@ -1,4 +1,5 @@
 #include "chatserver.hpp"
+#include "chatservice.hpp"
 #include<iostream>
 using namespace std;
 

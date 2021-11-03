@@ -9,6 +9,7 @@ using namespace muduo;
 using namespace muduo::net;
 
 #include "json.hpp"
+using json=nlohmann::json;
 
 //  表示处理信息的事件回调方法类型
 using MsgHandler=std::function<void(const TcpConnectionPtr&conn,json &js,Timestamp)>;
