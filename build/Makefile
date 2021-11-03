@@ -130,17 +130,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named server
+# Target rules for targets named testmuduo_server
 
 # Build rule for target.
-server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
-.PHONY : server
+testmuduo_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testmuduo_server
+.PHONY : testmuduo_server
 
 # fast build rule for target.
-server/fast:
-	$(MAKE) $(MAKESILENT) -f test/testmuduo/CMakeFiles/server.dir/build.make test/testmuduo/CMakeFiles/server.dir/build
-.PHONY : server/fast
+testmuduo_server/fast:
+	$(MAKE) $(MAKESILENT) -f src/testmuduo/CMakeFiles/testmuduo_server.dir/build.make src/testmuduo/CMakeFiles/testmuduo_server.dir/build
+.PHONY : testmuduo_server/fast
 
 # Help Target
 help:
@@ -150,7 +150,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... server"
+	@echo "... testmuduo_server"
 .PHONY : help
 
 

@@ -43,11 +43,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "test/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "test/testmuduo/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/testmuduo/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "test/testmuduo/CMakeFiles/server.dir/DependInfo.cmake"
+  "src/testmuduo/CMakeFiles/testmuduo_server.dir/DependInfo.cmake"
   )
