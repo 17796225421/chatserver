@@ -134,3 +134,60 @@ GnuTLS recv error (-54): Error in the pull function.
 
 ### 方法一（有效）
 可能是vscode bug，如果git的图形界面远程库选择时直接通过github仓库选择不行，要通过url选择
+
+
+
+## 三
+
+```
+add_subdirectory(src)
+# add_subdirectory(test)
+```
+
+无法同时执行，必须注释掉其一
+
+## 四（已解决）
+
+git clone太慢，但是难以和vpn配合使用，vpn有时全局有时绕过大陆
+
+直接下载zip压缩包后Xftp传输
+
+## 五（未解决）
+
+cmake
+
+```
+include_directories(${PROJECT_SOURCE_DIR}/thirdparty)
+```
+
+但是部分文件夹不能
+
+```
+#include "json.hpp"
+```
+
+解决方法
+
+可能是cmake bug， 需要在src文件夹server main函数中\#include "chatservice.hpp"，可能.hpp文件需要被include，否则有不知名bug
+
+## 六（已解决）
+
+Failed to connect to 127.0.0.1 port 10808: Connection refused
+
+我知道10808是我在尝试给git clone添加vpn操作时设置的，现在应该取消掉
+
+git config --global --unset http.proxy
+
+## 七（已解决）
+
+error: 推送一些引用到 'https://github.com/aqua5201314/QQ' 失败
+提示：更新被拒绝，因为远程仓库包含您本地尚不存在的提交。这通常是因为另外
+提示：一个仓库已向该引用进行了推送。再次推送前，您可能需要先整合远程变更
+提示：（如 'git pull ...'）。
+
+并且尝试新建空库后推送成功，较大可能是因为冲突。
+
+解决方法
+
+自己要提交的项目，从github拿下来要用pull不要用clone，防止冲突。
+
