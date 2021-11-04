@@ -8,7 +8,7 @@ using namespace std;
 class User
 {
 public:
-    User(int id = 1, string name = "", string pwd = "", string state = "offline")
+    User(int id = -1, string name = "", string pwd = "", string state = "offline")
     {
         this->id = id;
         this->name = name;
