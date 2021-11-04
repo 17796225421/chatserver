@@ -19,6 +19,12 @@ ChatService::ChatService()
     _msgHandlerMap.insert({ONE_CHAT_MSG, std::bind(&ChatService::oneChat, this, _1, _2, _3)});
 }
 
+// 服务器异常，业务重置方法
+void ChatService::reset(){
+    // 把online状态的用户，设置成offline
+    _userModel.resetState();
+}
+
 // 获取消息对应的处理器
 MsgHandler ChatService::getHandler(int msgid)
 {
@@ -144,12 +150,13 @@ void ChatService::oneChat(const TcpConnectionPtr &conn, json &js, Timestamp time
 {
     int toid = js["to"].get<int>();
     {
-        lock_guard<mutex>lock(_connMutex);
-        auto it=_userConnMap.find(toid);
-        if(it!=_userConnMap.end()){
+        lock_guard<mutex> lock(_connMutex);
+        auto it = _userConnMap.find(toid);
+        if (it != _userConnMap.end())
+        {
             // toid在线，转发消息，服务器主动推送消息给toid用户
             it->second->send(js.dump());
-            return ;
+            return;
         }
     }
     // toid不在线，存储离线消息
