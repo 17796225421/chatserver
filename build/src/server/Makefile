@@ -198,6 +198,33 @@ chatservice.cpp.s:
 	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/chatservice.cpp.s
 .PHONY : chatservice.cpp.s
 
+db/dp.o: db/dp.cpp.o
+
+.PHONY : db/dp.o
+
+# target to build an object file
+db/dp.cpp.o:
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/db/dp.cpp.o
+.PHONY : db/dp.cpp.o
+
+db/dp.i: db/dp.cpp.i
+
+.PHONY : db/dp.i
+
+# target to preprocess a source file
+db/dp.cpp.i:
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/db/dp.cpp.i
+.PHONY : db/dp.cpp.i
+
+db/dp.s: db/dp.cpp.s
+
+.PHONY : db/dp.s
+
+# target to generate assembly for a file
+db/dp.cpp.s:
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/db/dp.cpp.s
+.PHONY : db/dp.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -225,6 +252,33 @@ main.cpp.s:
 	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+usermodel.o: usermodel.cpp.o
+
+.PHONY : usermodel.o
+
+# target to build an object file
+usermodel.cpp.o:
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/usermodel.cpp.o
+.PHONY : usermodel.cpp.o
+
+usermodel.i: usermodel.cpp.i
+
+.PHONY : usermodel.i
+
+# target to preprocess a source file
+usermodel.cpp.i:
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/usermodel.cpp.i
+.PHONY : usermodel.cpp.i
+
+usermodel.s: usermodel.cpp.s
+
+.PHONY : usermodel.s
+
+# target to generate assembly for a file
+usermodel.cpp.s:
+	cd /root/project/QQ/build && $(MAKE) $(MAKESILENT) -f src/server/CMakeFiles/ChatServer.dir/build.make src/server/CMakeFiles/ChatServer.dir/usermodel.cpp.s
+.PHONY : usermodel.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -240,9 +294,15 @@ help:
 	@echo "... chatservice.o"
 	@echo "... chatservice.i"
 	@echo "... chatservice.s"
+	@echo "... db/dp.o"
+	@echo "... db/dp.i"
+	@echo "... db/dp.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... usermodel.o"
+	@echo "... usermodel.i"
+	@echo "... usermodel.s"
 .PHONY : help
 
 
