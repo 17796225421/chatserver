@@ -6,11 +6,17 @@
 
 #IncludeRegexTransform: 
 
-../include/server/chatserver.hpp
-muduo/net/TcpServer.h
+../include/public.hpp
+
+../include/server/chatservice.hpp
+muduo/net/TcpConnection.h
 -
-muduo/net/EventLoop.h
+unordered_map
 -
+functional
+-
+json.hpp
+../include/server/json.hpp
 
 ../thirdparty/json.hpp
 algorithm
@@ -342,13 +348,11 @@ limits
 type_traits
 -
 
-/root/project/QQ/src/server/chatserver.cpp
-chatserver.hpp
-/root/project/QQ/src/server/chatserver.hpp
-json.hpp
-/root/project/QQ/src/server/json.hpp
-functional
--
-string
+/root/project/QQ/src/server/chatservice.cpp
+chatservice.hpp
+/root/project/QQ/src/server/chatservice.hpp
+public.hpp
+/root/project/QQ/src/server/public.hpp
+muduo/base/Logging.h
 -
 
