@@ -21,6 +21,8 @@ User g_currentUser;
 vector<User> g_currentUserFriendList;
 // 当前登录用户的群组列表信息
 vector<Group> g_currentUserGroupList;
+// 控制主菜单页面程序
+bool isMainMenuRunning=false;
 
 // 显示当前登录成功用户的基本信息
 void showCurrentUserData();
@@ -201,6 +203,7 @@ int main(int argc, char **argv)
                         readTask.detach();                               // pthread_detach
 
                         // 进入聊天主菜单
+                        isMainMenuRunning=true;
                         mainMenu(clientfd);
                     }
                 }
@@ -358,7 +361,7 @@ void mainMenu(int clientfd)
     help();
 
     char buffer[1024] = {0};
-    while (true)
+    while (isMainMenuRunning)
     {
         cin.getline(buffer, 1024);
         string commandbuf(buffer);
@@ -510,6 +513,17 @@ void groupchat(int clientfd, string str)
 
 void loginout(int clientfd, string str)
 {
+    json js;
+    js["msgid"]=LOGINOUT_MSG;
+    js["id"]=g_currentUser.getId();
+    string buffer=js.dump();
+    
+    int len=send(clientfd,buffer.c_str(),strlen(buffer.c_str())+1,0);
+    if(len==-1){
+        cerr<<"发送注销请求出错"<<buffer<<endl;
+    }else {
+        isMainMenuRunning=false;
+    }
 }
 
 // 获取系统时间
