@@ -62,7 +62,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
             // 该用户已经登录，不允许重复登录
             json response;
             response["msgid"] = LOGIN_MSG_ACK;
-            response["erron"] = 2;
+            response["errno"] = 2;
             response["errmsg"] = "该账号已经登录，请重新输入新账号";
             conn->send(response.dump());
         }
@@ -79,7 +79,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
 
             json response;
             response["msgid"] = LOGIN_MSG_ACK;
-            response["erron"] = 0;
+            response["errno"] = 0;
             response["id"] = user.getId();
             response["name"] = user.getName();
             // 查询该用户是否有离线消息
@@ -106,6 +106,31 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
                 response["friends"] = vec2;
             }
 
+            // 查询用户的群组信息
+            vector<Group>groupuserVec=_groupModel.queryGroups(id);
+            if(!groupuserVec.empty()){
+                // group:[{groupid:[xxx,xxx,xxx,xxx]}]
+                vector<string>groupV;
+                for(Group&group:groupuserVec){
+                    json grpjson;
+                    grpjson["id"]=group.getId();
+                    grpjson["groupname"]=group.getName();
+                    grpjson["groupdesc"]=group.getDesc();
+                    vector<string>userV;
+                    for(GroupUser&user:group.getUsers()){
+                        json js;
+                        js["id"]=user.getId();
+                        js["name"]=user.getName();
+                        js["state"]=user.getState();
+                        js["role"]=user.getState();
+                        userV.push_back(js.dump());
+                    }
+                    grpjson["users"]=userV;
+                    groupV.push_back(grpjson.dump());
+                }
+                response["groups"]=groupV;
+            }
+
             conn->send(response.dump());
         }
     }
@@ -114,7 +139,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
         // 用户不存在或者用户存在但是密码错误
         json response;
         response["msgid"] = LOGIN_MSG_ACK;
-        response["erron"] = 1;
+        response["errno"] = 1;
         response["errmsg"] = "用户名或者密码错误";
         conn->send(response.dump());
     }
@@ -144,7 +169,7 @@ void ChatService::reg(const TcpConnectionPtr &conn, json &js, Timestamp time)
         // 注册失败
         json response;
         response["msgid"] = REG_MSG_ACK;
-        response["error"] = 1;
+        response["errno"] = 1;
         conn->send(response.dump());
     }
 }
