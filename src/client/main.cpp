@@ -182,8 +182,17 @@ int main(int argc, char **argv)
                             for (string &str : vec)
                             {
                                 json js = json::parse(str);
-                                cout << js["time"] << "[" << js["id"] << "]" << js["name"]
-                                     << "说：" << js["msg"] << endl;
+                                int msgtype = js["msgid"].get<int>();
+                                if (msgtype == ONE_CHAT_MSG)
+                                {
+                                    cout << js["time"] << "[" << js["id"] << "]" << js["name"]
+                                         << "说：" << js["msg"] << endl;
+                                }
+                                else if (msgtype == GROUP_CHAT_MSG)
+                                {
+                                    cout << "群消息【" << js["groupid"] << "】：" << js["time"].get<string>() << " 【" << js[id]
+                                         << " 说：" << js["msg"].get<string>() << endl;
+                                }
                             }
                         }
 
@@ -299,11 +308,16 @@ void readTaskHandler(int clientfd)
 
         // 接受ChatServer转发的数据，反序列化生成json数据对象
         json js = json::parse(buffer);
-        if (js["msgid"].get<int>() == ONE_CHAT_MSG)
+        int msgtype = js["msgid"].get<int>();
+        if (msgtype == ONE_CHAT_MSG)
         {
             cout << js["time"].get<string>() << "[" << js["id"] << "]" << js["name"].get<string>()
                  << "说：" << js["msg"].get<string>() << endl;
-            continue;
+        }
+        else if (msgtype == GROUP_CHAT_MSG)
+        {
+            cout << "群消息【" << js["groupid"] << "】：" << js["time"].get<string>() << " 【" << js["id"]
+                 << " 说：" << js["msg"].get<string>() << endl;
         }
     }
 }
@@ -392,7 +406,7 @@ void addfriend(int clientfd, string str)
     int len = send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
     if (len == -1)
     {
-        cerr << "添加好友请求发送错误：" << buffer << endl;
+        cerr << "发送添加好友请求出错：" << buffer << endl;
     }
 }
 
@@ -401,7 +415,7 @@ void chat(int clientfd, string str)
     int idx = str.find(":"); // friendid:message
     if (idx == -1)
     {
-        cerr << "chat指令格式错误" << endl;
+        cerr << "chat指令格式错误！" << endl;
         return;
     }
 
@@ -420,20 +434,78 @@ void chat(int clientfd, string str)
     int len = send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
     if (len == -1)
     {
-        cerr << "发送消息出错！" << buffer << endl;
+        cerr << "发送chat请求出错！" << buffer << endl;
     }
 }
 
 void creategroup(int clientfd, string str)
 {
+    int idx = str.find(":"); // groupname:groupdesc
+    if (idx == -1)
+    {
+        cerr << "creategroup指令格式错误！" << endl;
+        return;
+    }
+
+    string groupname = str.substr(0, idx);
+    string groupdesc = str.substr(idx + 1, str.size() - idx);
+
+    json js;
+    js["msgid"] = CREATE_GROUP_MSG;
+    js["id"] = g_currentUser.getId();
+    js["groupname"] = groupname;
+    js["groupdesc"] = groupdesc;
+    string buffer = js.dump();
+
+    int len = send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
+    if (len == -1)
+    {
+        cerr << "发送创建群组请求出错！" << buffer << endl;
+    }
 }
 
 void addgroup(int clientfd, string str)
 {
+    int groupid = atoi(str.c_str());
+    json js;
+    js["msgid"] = ADD_GROUP_MSG;
+    js["id"] = g_currentUser.getId();
+    js["groupid"] = groupid;
+    string buffer = js.dump();
+
+    int len = send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
+    if (len == -1)
+    {
+        cerr << "发送添加群组请求出错！" << buffer << endl;
+    }
 }
 
 void groupchat(int clientfd, string str)
 {
+    int idx = str.find(":");
+    if (idx == -1)
+    {
+        cerr << "groupchat指令格式错误！" << endl;
+        return;
+    }
+
+    int groupid = atoi(str.substr(0, idx).c_str());
+    string messages = str.substr(idx + 1, str.size() - idx);
+
+    json js;
+    js["msgid"] = GROUP_CHAT_MSG;
+    js["id"] = g_currentUser.getId();
+    js["name"] = g_currentUser.getName();
+    js["groupid"] = groupid;
+    js["msg"] = messages;
+    js["time"] = getCurrentTime();
+    string buffer = js.dump();
+
+    int len = send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
+    if (len == -1)
+    {
+        cerr << "发送群组交流请求出错！" << endl;
+    }
 }
 
 void loginout(int clientfd, string str)

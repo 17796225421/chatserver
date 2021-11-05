@@ -20,6 +20,9 @@ ChatService::ChatService()
     _msgHandlerMap.insert({REG_MSG, std::bind(&ChatService::reg, this, _1, _2, _3)});
     _msgHandlerMap.insert({ONE_CHAT_MSG, std::bind(&ChatService::oneChat, this, _1, _2, _3)});
     _msgHandlerMap.insert({ADD_FRIEND_MSG, std::bind(&ChatService::addFriend, this, _1, _2, _3)});
+    _msgHandlerMap.insert({CREATE_GROUP_MSG,std::bind(&ChatService::createGroup,this,_1,_2,_3)});
+    _msgHandlerMap.insert({ADD_GROUP_MSG,std::bind(&ChatService::addGroup,this,_1,_2,_3)});
+    _msgHandlerMap.insert({GROUP_CHAT_MSG,std::bind(&ChatService::groupChat,this,_1,_2,_3)});
 }
 
 // 服务器异常，业务重置方法
@@ -123,7 +126,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
                         js["id"]=user.getId();
                         js["name"]=user.getName();
                         js["state"]=user.getState();
-                        js["role"]=user.getState();
+                        js["role"]=user.getRole();
                         userV.push_back(js.dump());
                     }
                     grpjson["users"]=userV;
