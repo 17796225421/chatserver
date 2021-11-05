@@ -130,6 +130,9 @@ int main(int argc, char **argv)
                         // 记录当前用户的好友列表信息
                         if (responsejs.contains("friends"))
                         {
+                            // 初始化
+                            g_currentUserFriendList.clear();
+
                             vector<string> vec = responsejs["friends"];
                             for (string &str : vec)
                             {
@@ -414,27 +417,27 @@ void chat(int clientfd, string str)
     js["time"] = getCurrentTime();
     string buffer = js.dump();
 
-    int len=send(clientfd,buffer.c_str(),strlen(buffer.c_str())+1,0);
-    if(len==-1){
-        cerr<<"发送消息出错！"<<buffer<<endl;
+    int len = send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
+    if (len == -1)
+    {
+        cerr << "发送消息出错！" << buffer << endl;
     }
 }
 
-
-void creategroup(int clientfd,string str){
-
+void creategroup(int clientfd, string str)
+{
 }
 
-void addgroup(int clientfd,string str){
-
+void addgroup(int clientfd, string str)
+{
 }
 
-void groupchat(int clientfd,string str){
-
+void groupchat(int clientfd, string str)
+{
 }
 
-void loginout(int clientfd,string str){
-
+void loginout(int clientfd, string str)
+{
 }
 
 // 获取系统时间

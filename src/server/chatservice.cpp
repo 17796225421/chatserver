@@ -82,7 +82,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
             response["errno"] = 0;
             response["id"] = user.getId();
             response["name"] = user.getName();
-            // 查询该用户是否有离线消息
+             // 查询该用户是否有离线消息
             vector<string> vec = _offlineMsgModel.query(id);
             if (!vec.empty())
             {
@@ -90,6 +90,7 @@ void ChatService::login(const TcpConnectionPtr &conn, json &js, Timestamp time)
                 // 读取该用户的离线消息，把该用户的所有离线消息删除掉
                 _offlineMsgModel.remove(id);
             }
+            
             // 查询该用户的好友信息并返回
             vector<User> userVec = _friendModel.query(id);
             if (!userVec.empty())
