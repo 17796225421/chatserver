@@ -22,7 +22,7 @@ vector<User> g_currentUserFriendList;
 // 当前登录用户的群组列表信息
 vector<Group> g_currentUserGroupList;
 // 控制主菜单页面程序
-bool isMainMenuRunning=false;
+bool isMainMenuRunning = false;
 
 // 显示当前登录成功用户的基本信息
 void showCurrentUserData();
@@ -198,12 +198,17 @@ int main(int argc, char **argv)
                             }
                         }
 
-                        // 登录成功，启动接收线程负责接收数据
-                        std::thread readTask(readTaskHandler, clientfd); // pthread_create
-                        readTask.detach();                               // pthread_detach
+                        // 登录成功，启动接收线程负责接收数据，该线程只启动一次
+                        static bool isReadTaskRunning = false;
+                        if (isReadTaskRunning == false)
+                        {
+                            isReadTaskRunning = true;
+                            std::thread readTask(readTaskHandler, clientfd); // pthread_create
+                            readTask.detach();                               // pthread_detach
+                        }
 
                         // 进入聊天主菜单
-                        isMainMenuRunning=true;
+                        isMainMenuRunning = true;
                         mainMenu(clientfd);
                     }
                 }
@@ -302,6 +307,7 @@ void readTaskHandler(int clientfd)
     while (true)
     {
         char buffer[1024] = {0};
+        // 注销后阻塞，无法离开接收线程，因此接收线程只启动一次
         int len = recv(clientfd, buffer, 1024, 0);
         if (len == -1 || len == 0)
         {
@@ -514,15 +520,18 @@ void groupchat(int clientfd, string str)
 void loginout(int clientfd, string str)
 {
     json js;
-    js["msgid"]=LOGINOUT_MSG;
-    js["id"]=g_currentUser.getId();
-    string buffer=js.dump();
-    
-    int len=send(clientfd,buffer.c_str(),strlen(buffer.c_str())+1,0);
-    if(len==-1){
-        cerr<<"发送注销请求出错"<<buffer<<endl;
-    }else {
-        isMainMenuRunning=false;
+    js["msgid"] = LOGINOUT_MSG;
+    js["id"] = g_currentUser.getId();
+    string buffer = js.dump();
+
+    int len = send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
+    if (len == -1)
+    {
+        cerr << "发送注销请求出错" << buffer << endl;
+    }
+    else
+    {
+        isMainMenuRunning = false;
     }
 }
 
