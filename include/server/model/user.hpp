@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-// 匹配User表的ORM类
+// User表的ORM类
 class User
 {
 public:
@@ -26,10 +26,11 @@ public:
     string getPwd() { return this->password; }
     string getState() { return this->state; }
 
-private:
+protected:
     int id;
     string name;
     string password;
     string state;
 };
+
 #endif

@@ -1,5 +1,5 @@
 #include "usermodel.hpp"
-#include "db.hpp"
+#include "db.h"
 #include <iostream>
 using namespace std;
 
@@ -31,6 +31,7 @@ User UserModel::query(int id)
     // 1.组装sql语句
     char sql[1024] = {0};
     sprintf(sql, "select * from user where id = %d", id);
+
     MySQL mysql;
     if (mysql.connect())
     {
@@ -50,6 +51,7 @@ User UserModel::query(int id)
             }
         }
     }
+
     return User();
 }
 
@@ -58,9 +60,7 @@ bool UserModel::updateState(User user)
 {
     // 1.组装sql语句
     char sql[1024] = {0};
-
-    sprintf(sql, "update user set state = '%s' where id = %d",
-            user.getState().c_str(), user.getId());
+    sprintf(sql, "update user set state = '%s' where id = %d", user.getState().c_str(), user.getId());
 
     MySQL mysql;
     if (mysql.connect())
@@ -70,7 +70,6 @@ bool UserModel::updateState(User user)
             return true;
         }
     }
-
     return false;
 }
 
@@ -78,9 +77,7 @@ bool UserModel::updateState(User user)
 void UserModel::resetState()
 {
     // 1.组装sql语句
-    char sql[1024] = {0};
-
-    sprintf(sql, "update user set state = 'offline' where state = 'online'");
+    char sql[1024] = "update user set state = 'offline' where state = 'online'";
 
     MySQL mysql;
     if (mysql.connect())
