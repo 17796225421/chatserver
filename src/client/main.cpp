@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 {
     if (argc < 3)
     {
-        cerr << "command invalid! example: ./ChatClient 127.0.0.1 6000" << endl;
+        cerr << "command invalid! example: ./ChatClient 127.0.0.1 9999" << endl;
         exit(-1);
     }
 
@@ -92,7 +92,7 @@ int main(int argc, char **argv)
     readTask.detach();                               // pthread_detach
 
     // main线程用于接收用户输入，负责发送数据
-    for (;;)
+    while(true)
     {
         // 显示首页面菜单 登录、注册、退出
         cout << "========================" << endl;
@@ -100,7 +100,7 @@ int main(int argc, char **argv)
         cout << "2. register" << endl;
         cout << "3. quit" << endl;
         cout << "========================" << endl;
-        cout << "choice:";
+        cout << "选择:";
         int choice = 0;
         cin >> choice;
         cin.get(); // 读掉缓冲区残留的回车
@@ -332,9 +332,9 @@ void readTaskHandler(int clientfd)
 // 显示当前登录成功用户的基本信息
 void showCurrentUserData()
 {
-    cout << "======================login user======================" << endl;
-    cout << "current login user => id:" << g_currentUser.getId() << " name:" << g_currentUser.getName() << endl;
-    cout << "----------------------friend list---------------------" << endl;
+    cout << "----------------------登录用户---------------------" << endl;
+    cout << "当前登录用户id:" << g_currentUser.getId() << " 姓名:" << g_currentUser.getName() << endl;
+    cout << "----------------------好友列表---------------------" << endl;
     if (!g_currentUserFriendList.empty())
     {
         for (User &user : g_currentUserFriendList)
@@ -342,7 +342,7 @@ void showCurrentUserData()
             cout << user.getId() << " " << user.getName() << " " << user.getState() << endl;
         }
     }
-    cout << "----------------------group list----------------------" << endl;
+    cout << "----------------------群组列表----------------------" << endl;
     if (!g_currentUserGroupList.empty())
     {
         for (Group &group : g_currentUserGroupList)
@@ -355,7 +355,7 @@ void showCurrentUserData()
             }
         }
     }
-    cout << "======================================================" << endl;
+    cout << "---------------------------------------------------" << endl;
 }
 
 // "help" command handler
