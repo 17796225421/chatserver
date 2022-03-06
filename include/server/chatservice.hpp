@@ -10,10 +10,10 @@ using namespace muduo;
 using namespace muduo::net;
 
 #include "redis.hpp"
-#include "groupmodel.hpp"
-#include "friendmodel.hpp"
-#include "usermodel.hpp"
-#include "offlinemessagemodel.hpp"
+#include "groupapi.hpp"
+#include "friendapi.hpp"
+#include "userapi.hpp"
+#include "offlinemessageapi.hpp"
 #include "json.hpp"
 using json = nlohmann::json;
 
@@ -62,10 +62,10 @@ private:
     mutex _connMutex;
 
     // 数据操作类对象
-    UserModel _userModel;
-    OfflineMsgModel _offlineMsgModel;
-    FriendModel _friendModel;
-    GroupModel _groupModel;
+    UserApi _userApi;
+    OfflineMsgApi _offlineMsgApi;
+    FriendApi _friendApi;
+    GroupApi _groupApi;
 
     // redis操作对象
     Redis _redis;

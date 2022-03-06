@@ -1,8 +1,8 @@
-#include "friendmodel.hpp"
+#include "friendapi.hpp"
 #include "db.h"
 
 // 添加好友关系
-void FriendModel::insert(int userid, int friendid)
+void FriendApi::insert(int userid, int friendid)
 {
     // 1.组装sql语句
     char sql[1024] = {0};
@@ -16,7 +16,7 @@ void FriendModel::insert(int userid, int friendid)
 }
 
 // 返回用户好友列表
-vector<User> FriendModel::query(int userid)
+vector<User> FriendApi::query(int userid)
 {
     // 1.组装sql语句
     char sql[1024] = {0};

@@ -1,12 +1,12 @@
-#ifndef OFFLINEMESSAGEMODEL_H
-#define OFFLINEMESSAGEMODEL_H
+#ifndef OFFLINEMESSAGEAPI_H
+#define OFFLINEMESSAGEAPI_H
 
 #include <string>
 #include <vector>
 using namespace std;
 
 // 提供离线消息表的操作接口方法
-class OfflineMsgModel
+class OfflineMsgApi
 {
 public:
     // 存储用户的离线消息

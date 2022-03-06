@@ -1,8 +1,8 @@
-#include "groupmodel.hpp"
+#include "groupapi.hpp"
 #include "db.h"
 
 // 创建群组
-bool GroupModel::createGroup(Group &group)
+bool GroupApi::createGroup(Group &group)
 {
     // 1.组装sql语句
     char sql[1024] = {0};
@@ -23,7 +23,7 @@ bool GroupModel::createGroup(Group &group)
 }
 
 // 加入群组
-void GroupModel::addGroup(int userid, int groupid, string role)
+void GroupApi::addGroup(int userid, int groupid, string role)
 {
     // 1.组装sql语句
     char sql[1024] = {0};
@@ -38,7 +38,7 @@ void GroupModel::addGroup(int userid, int groupid, string role)
 }
 
 // 查询用户所在群组信息
-vector<Group> GroupModel::queryGroups(int userid)
+vector<Group> GroupApi::queryGroups(int userid)
 {
     /*
     1. 先根据userid在groupuser表中查询出该用户所属的群组信息
@@ -98,7 +98,7 @@ vector<Group> GroupModel::queryGroups(int userid)
 }
 
 // 根据指定的groupid查询群组用户id列表，除userid自己，主要用户群聊业务给群组其它成员群发消息
-vector<int> GroupModel::queryGroupUsers(int userid, int groupid)
+vector<int> GroupApi::queryGroupUsers(int userid, int groupid)
 {
     char sql[1024] = {0};
     sprintf(sql, "select userid from groupuser where groupid = %d and userid != %d", groupid, userid);

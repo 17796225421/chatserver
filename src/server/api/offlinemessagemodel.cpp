@@ -1,8 +1,8 @@
-#include "offlinemessagemodel.hpp"
+#include "offlinemessageapi.hpp"
 #include "db.h"
 
 // 存储用户的离线消息
-void OfflineMsgModel::insert(int userid, string msg)
+void OfflineMsgApi::insert(int userid, string msg)
 {
     // 1.组装sql语句
     char sql[1024] = {0};
@@ -16,7 +16,7 @@ void OfflineMsgModel::insert(int userid, string msg)
 }
 
 // 删除用户的离线消息
-void OfflineMsgModel::remove(int userid)
+void OfflineMsgApi::remove(int userid)
 {
     // 1.组装sql语句
     char sql[1024] = {0};
@@ -30,7 +30,7 @@ void OfflineMsgModel::remove(int userid)
 }
 
 // 查询用户的离线消息
-vector<string> OfflineMsgModel::query(int userid)
+vector<string> OfflineMsgApi::query(int userid)
 {
     // 1.组装sql语句
     char sql[1024] = {0};

@@ -1,5 +1,5 @@
-#ifndef GROUPMODEL_H
-#define GROUPMODEL_H
+#ifndef GROUPAPI_H
+#define GROUPAPI_H
 
 #include "group.hpp"
 #include <string>
@@ -7,7 +7,7 @@
 using namespace std;
 
 // 维护群组信息的操作接口方法
-class GroupModel
+class GroupApi
 {
 public:
     // 创建群组
