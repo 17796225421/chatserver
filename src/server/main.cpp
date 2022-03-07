@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     signal(SIGINT, resetHandler);
 
     EventLoop loop;
-    InetAddress addr(ip, port);
+    InetAddress addr(port, ip);
     ChatServer server(&loop, addr, "ChatServer");
 
     server.start();

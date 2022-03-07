@@ -1,9 +1,9 @@
 #include "chatservice.hpp"
 #include "public.hpp"
-#include <muduo/base/Logging.h>
+#include <netlibrary/Logger.h>
 #include <vector>
 using namespace std;
-using namespace muduo;
+using namespace std::placeholders;
 
 // 获取单例对象的接口函数
 ChatService *ChatService::instance()
@@ -51,7 +51,7 @@ MsgHandler ChatService::getHandler(int msgid)
     {
         // 返回一个默认的处理器，空操作
         return [=](const TcpConnectionPtr &conn, json &js, Timestamp) {
-            LOG_ERROR << "msgid:" << msgid << " can not find handler!";
+            LOG_ERROR("msgid:%d can not find handler!",msgid);
         };
     }
     else
